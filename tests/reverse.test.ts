@@ -52,4 +52,45 @@ describe("reverseSentence", () => {
       "ecnetnes a si siht"
     );
   });
+
+  ///// Additional Tests /////
+  it("Empty - should return nothing", () => {
+    const sentence = "";
+    const reverseWords = true;
+    const reverseLetters = true;
+
+    expect(reverseSentence(sentence, reverseWords, reverseLetters)).to.equal(
+      ""
+    );
+  });
+
+  it("Space - should return space", () => {
+    const sentence = " ";
+    const reverseWords = true;
+    const reverseLetters = true;
+
+    expect(reverseSentence(sentence, reverseWords, reverseLetters)).to.equal(
+      " "
+    );
+  });
+
+  it("Singles - should reverse singles to itself", () => {
+    const sentence = "a b c d e";
+    const reverseWords = false;
+    const reverseLetters = true;
+
+    expect(reverseSentence(sentence, reverseWords, reverseLetters)).to.equal(
+      "a b c d e"
+    );
+  });
+
+  it("Singles - should reverse sentence by words", () => {
+    const sentence = "a b c d e";
+    const reverseWords = true;
+    const reverseLetters = true;
+
+    expect(reverseSentence(sentence, reverseWords, reverseLetters)).to.equal(
+      "e d c b a"
+    );
+  });
 });
