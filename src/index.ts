@@ -3,11 +3,13 @@
 import { reverseSentence } from "./reverse";
 
 const argv = process.argv.slice(2)
-if (argv.length > 0) {
-  const sentence = argv[0][0] !== "-" ? argv[0] : ""  
+if (argv.length > 0 && argv[0][0] !== "-") {
+  const sentence = argv[0]  
   const reverseWord = argv.includes("--word")
   const reverseLetter = argv.includes("--letter")
   console.log(reverseSentence(sentence, reverseWord, reverseLetter));
+} else {
+  console.error("Please include a sentence to reverse.")
 }
 
 /**
