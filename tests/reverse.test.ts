@@ -70,7 +70,7 @@ describe("reverseSentence", () => {
     const reverseLetters = true;
 
     expect(reverseSentence(sentence, reverseWords, reverseLetters)).to.equal(
-      " "
+      ""
     );
   });
 
@@ -91,6 +91,16 @@ describe("reverseSentence", () => {
 
     expect(reverseSentence(sentence, reverseWords, reverseLetters)).to.equal(
       "e d c b a"
+    );
+  });
+
+  it("Leading & Trailing Spaces - should reverse sentences by letters & remove spaces", () => {
+    const sentence = "   the letters        ";
+    const reverseWords = false;
+    const reverseLetters = true;
+
+    expect(reverseSentence(sentence, reverseWords, reverseLetters)).to.equal(
+      "eht srettel"
     );
   });
 });
