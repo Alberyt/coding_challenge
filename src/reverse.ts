@@ -10,12 +10,22 @@ export const reverseSentence = (
   reverseWords: boolean,
   reverseLetters: boolean
 ): string => {
-  let reverse = sentence.split(" ");
-  if (reverseWords) reverse.reverse();
-  if (reverseLetters) {
-    reverse.map((word, index) => {
-      reverse[index] = word.split("").reverse().join("")
-    })
+  try {
+    let reverse = sentence.trim().split(" ");
+    if (reverseWords) reverse.reverse();
+    if (reverseLetters) {
+      reverse.map((word, index) => {
+        reverse[index] = word.split("").reverse().join("")
+      })
+    }
+    return reverse.join(" ")
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error('An error has occurred:', error.message);
+      throw new Error(error.message || 'Sentence Reversal has failed.');
+    } else {
+      console.error('An unexpected error has occurred:', error);
+      throw new Error('Sentence Reversal has failed.');
+    }
   }
-  return reverse.join(" ")
 };
