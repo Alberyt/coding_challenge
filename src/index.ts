@@ -10,6 +10,13 @@ if (argv.length > 0 && argv[0][0] !== "-") {
   console.log(reverseSentence(sentence, reverseWord, reverseLetter));
 } else {
   console.error("Please include a sentence to reverse.")
+  console.error("If sentence includes '-' at the start, please remove it")
+
+  console.error("Usage: npm start -- `please reverse this sentence`")
+  console.error(`Parameters: 
+    --word    - Reverses the order of the words
+    --letter  - Reverses the order of the letters within each word
+  `)
 }
 
 /**
@@ -21,4 +28,6 @@ if (argv.length > 0 && argv[0][0] !== "-") {
  * Sample Inputs:
       npm start -- 
       npm start -- "" --word
+
+
  */
